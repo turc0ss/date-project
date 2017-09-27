@@ -4,15 +4,29 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+/**
+ *
+ * @author tapsa
+ *
+ */
 @Document(collection = "dates")
 public class DateStorageModel {
 
+	/*
+	 * Model String id. Repository field id.
+	 */
 	@Id
 	private String id;
 
+	/*
+	 * Model String title. Repository field TITLE.
+	 */
 	@Field(value = "TITLE")
 	private String title;
 
+	/*
+	 * Model String date. Repository field DATE.
+	 */
 	@Field(value = "DATE")
 	private String date;
 

@@ -20,23 +20,53 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
+/**
+ *
+ * @author tapsa
+ *
+ */
 @SpringUI(path = "/ui")
 @Theme("valo")
 @Title("Date Storage")
 public class DateUI extends UI {
 
+	/**
+	 * Autowired Repository for the DateUI.
+	 */
 	@Autowired
-	DateRepository repo;
+	private DateRepository repo;
 
+	/**
+	 * Variable headerLabel, type Label. Vaadin.ui.Label.
+	 */
 	private Label headerLabel;
-	private Label dateLabel;
-	private Date date;
-	private VerticalLayout rootLayout;
-	private Button dateButton;
-	private DateFormat dateF = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
+	/**
+	 * Variable dateLabel, type Label. Vaadin.ui.Label.
+	 */
+	private Label dateLabel;
+
+	/**
+	 * Variable date. Java.util.date.
+	 */
+	private Date date;
+
+	/**
+	 * Variable rootLayout, type VerticalLayout. Com.vaadin.ui.VerticalLayout.
+	 */
+	private VerticalLayout rootLayout;
+
+	/**
+	 * Variable dateButton, type Button. Com.vaadin.ui.Button.
+	 */
+	private Button dateButton;
+
+	/**
+	 * Format date to specific format to show time in a requested way.
+	 */
+	private DateFormat dateF = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	@Override
-	protected void init(VaadinRequest request) {
+	protected final void init(final VaadinRequest request) {
 
 		rootLayout = new VerticalLayout();
 		rootLayout.setMargin(true);
@@ -53,7 +83,7 @@ public class DateUI extends UI {
 		dateButton.addClickListener(new ClickListener() {
 
 			@Override
-			public void buttonClick(ClickEvent event) {
+			public void buttonClick(final ClickEvent event) {
 
 				date = new Date();
 				String formattedDate = dateF.format(date);
